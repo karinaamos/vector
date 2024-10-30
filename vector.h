@@ -6,9 +6,13 @@ class Vector{
 protected:
     T* _array;//динамич массив
     size_t _size;
-    size_t _startIndex//первый индекс с которого начинается матрица
+    size_t _startIndex;//первый индекс с которого начинается матрица
 public:
-    Vector(size_t size, size_t startIndex);
+    Vector(size_t size, size_t startIndex){
+        _size = size;
+        _startIndex = startIndex;
+        _array = new T[_size];
+    }
     //рассмотреть выделение памяти, проконтролить чтобы старт идекс был не больше размера, размер не 0
     Vector(const Vector& tmp) : _size(tmp._size), _startIndex(tmp._startIndex) {
         _array = new T[_size];
@@ -37,7 +41,7 @@ public:
         }
         return _array[pos - _startIndex];
     }
-    T& operator[](size_t){
+    T& operator[](size_t pos){
         return _array[pos - _startIndex];
     }
     Vector& operator=(const Vector& tmp){//оператор присваивания ЗНАТЬ РАССКАЗЫВАТЬ БУДЕМ
