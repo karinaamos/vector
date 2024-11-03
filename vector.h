@@ -8,11 +8,12 @@ protected:
     size_t _size;
     size_t _startIndex;//первый индекс с которого начинается матрица
 public:
-    Vector(size_t size, size_t startIndex){
+    Vector(size_t size, size_t startIndex = 0){
         _size = size;
-        _startIndex = startIndex;
         _array = new T[_size];
+        _startIndex = startIndex;
     }
+    Vector() : Vector(0, 0) {}
     //рассмотреть выделение памяти, проконтролить чтобы старт идекс был не больше размера, размер не 0
     Vector(const Vector& tmp) : _size(tmp._size), _startIndex(tmp._startIndex) {
         _array = new T[_size];
@@ -37,7 +38,7 @@ public:
     }
     T& At(size_t pos){
         if (pos < _startIndex || pos >= _startIndex + _size) {
-            throw std::out_of_range("Индекс вне допустимого диапазона.");
+            throw std::out_of_range("Индекс вне допустимого диапазона");
         }
         return _array[pos - _startIndex];
     }
@@ -80,5 +81,34 @@ public:
             sum += _array[i] * tmp._array[i];
         }
         return sum;
+    }
+    friend std::ostream& operator<<(std::ostream& os, const Vector& vect){
+        os<<"(";
+        for(int i=0; i<vect._size;i++){
+            if(vect._startIndex>i)
+            os<<0<<", ";
+            else{
+            os<<vect._array[i];
+            if(i+1!=vect._size)
+                os<<", ";
+            }
+        }
+        os<<")";
+        return os;
+    }
+
+     friend std::istream& operator>>(std::istream& istr, Vector& vec){
+        T current;
+        vec._startIndex=0;
+        for (size_t i=0;i< vec._size;i++){
+            std::cout<<"elem n"<<i<<": ";
+            istr>>current;
+            if (current==0)
+            vec._startIndex++;
+            else
+            vec._array[i]=current;
+
+        }
+        return istr;
     }
 };
