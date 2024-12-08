@@ -3,17 +3,22 @@
 template <class T>
 class Matrix: public Vector<Vector<T>>{
 public: 
-    Matrix(size_t n):Vector<Vector<T>>(n, 0){
-        for(size_t i=0; i<n;i++){
-            this -> At(i) = Vector<T>(n-i, i);//n-i-размер,  i-startIndex
+    Matrix(size_t n, bool flag = false) : Vector<Vector<T>>(n){
+        if (flag){
+            for (size_t i = 0; i < n; i++){
+                this->_array[i] = Vector<T>(n, i);
+            }
+        }
+        else{
+            for (size_t i = 0; i < n; i++){
+                this->_array[i] = Vector<T>(n);
+            }
         }
     }
     Matrix(const Matrix& mt):Vector<Vector<T>>(mt){//конструктор копирования 
-        for (size_t i = 0; i < this->Getsize(); ++i) {
-            this->At(i) = mt.At(i);
-        }
     }
-    Matrix(const Vector<Vector<T>>& mt):  Vector<Vector<T>>(mt) {}
+    Matrix(const Vector<Vector<T>>& mt):  Vector<Vector<T>>(mt) {
+    }
     Matrix& operator=(const Matrix& mt){//оператор присваивания
      if (this == &mt) {
             return *this;
@@ -34,14 +39,15 @@ public:
         return Vector<Vector<T>>::operator-(mt);
     }
     Matrix operator*(const Matrix& mt){
-        Matrix result(this->Getsize());
-        for (size_t i = 0; i < this->Getsize(); ++i) {
-            for (size_t j = 0; j < this->Getsize(); ++j) {
-                result[i][j] = 0;
-                for (size_t k = 0; k < this->Getsize(); ++k) {
-                    result[i][j] += this->At(i)[k] * mt.At(k)[j];
+        Matrix result=Matrix(this->_size);
+        size_t sum=this->_size;
+        for (size_t i=0;i<this->_size;i++){//для строк
+            for (size_t j=0;j<sum;j++){//для столбцов
+                for (size_t z=0;z<j+1;z++){
+                    result[i][j]+=this->_array[i][z]*mt[i+z][j-z];
                 }
             }
+            sum--;
         }
         return result;
     }
