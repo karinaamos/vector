@@ -1,42 +1,32 @@
 #include <iostream>
 #include "Matrix.h"
+#include "Vector.h"
 
-int main() {
+int main(){
     Vector<int> vec1 = Vector<int>(3);
-    std::cout<<"Enter elements vec1"<<std::endl;
-    std::cin>>vec1;
-
-    Vector<int> vec2 = Vector<int>(3);
-    std::cout<<"Enter elements vec2"<<std::endl;
-    std::cin>>vec2;
-
-    Vector<int> res1 = vec1 + vec2;
-    std::cout<<"Sum of vec1 and vec2"<<std::endl;
-    std::cout<<res1<<std::endl;
-
-    Vector<int> res2 = vec1 - vec2;
-    std::cout<<"Dif of vec1 and vec2"<<std::endl;
-    std::cout<<res2<<std::endl;
-
+    vec1[0] = 3;
+    Vector<int> vec2 = Vector<int>(3, 1);
+    vec2[1] = 5;
+    Vector<int> vec3 = Vector<int>(3, 0);
+    vec3[0] = 1;
+    vec3 = vec1 + vec2;
+    std::cout<<vec1<<vec2<<vec3<<"\n";
     Matrix<int> matr1 = Matrix<int>(3);
-    std::cout<<"Enter elements matr1"<<std::endl;
-    std::cin>>matr1;
-
+    matr1[0][1] = 1;
+    matr1[0][2] = 2;
+    matr1[1][1] = 3;
+    std::cout<<matr1<<"\n";
     Matrix<int> matr2 = Matrix<int>(3);
-    std::cout<<"Enter elements matr2"<<std::endl;
-    std::cin>>matr2;
+    matr2[0][1] = 4;
+    matr2[0][2] = 5;
+    matr2[1][1] = 6;
+    std::cout<<matr2;
+    Matrix<int> matr3 = matr1 * matr2;
+    std::cout<<"\n"<<matr3;
 
-    Matrix<int> res3 = matr1 + matr2;
-    std::cout<<"Sum of matr1 and matr2"<<std::endl;
-    std::cout<<res3<<std::endl;
+    
+   
 
-    Matrix<int> res4 = matr2 - matr1;
-    std::cout<<"Dif of matr2 and matr1"<<std::endl;
-    std::cout<<res4<<std::endl;
-
-    Matrix<int> res5 = matr1 * matr2;
-    std::cout<<"Mult of matr1 and matr2"<<std::endl;
-    std::cout<<res5<<std::endl;
 
     return 0;
 }

@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/c++ (2024-2025)/vector/build"
+			"value" : "c:/PROGA/3 sem/Vector/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -439,7 +439,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/c++ (2024-2025)/vector/build/CMakeFiles/pkgRedirects"
+			"value" : "C:/PROGA/3 sem/Vector/build/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -511,7 +511,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/c++ (2024-2025)/vector"
+			"value" : "C:/PROGA/3 sem/Vector"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1147,7 +1147,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/c++ (2024-2025)/vector/build"
+			"value" : "C:/PROGA/3 sem/Vector/build"
 		},
 		{
 			"name" : "CPlusPlusBestC_IS_TOP_LEVEL",
@@ -1171,7 +1171,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/c++ (2024-2025)/vector"
+			"value" : "C:/PROGA/3 sem/Vector"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",

@@ -1,4 +1,4 @@
-# Install script for directory: C:/c++ (2024-2025)/vector
+# Install script for directory: C:/PROGA/3 sem/Vector
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/c++ (2024-2025)/vector/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/PROGA/3 sem/Vector/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
